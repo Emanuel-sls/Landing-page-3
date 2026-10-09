@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CT Imperial Fight | Muay Thai e Jiu-jítsu em Maceió</title>
+<meta name="description" content="Centro de Treinamento Imperial Fight: academia de artes marciais em Maceió. Muay Thai e Jiu-jítsu. Agende uma aula experimental.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --royal:#070907; --royal2:#0f2a16; --crimson:#168a2a; --gold:#46e05a;
+  --mist:#f1f5f1; --ink:#070907; --white:#fff;
+  --bg:var(--royal); --fg:#f1f5f1; --muted:#a9b8ab; --line:rgba(255,255,255,.14);
+  --pad-top:env(safe-area-inset-top,0px); --pad-bot:env(safe-area-inset-bottom,0px);
+  --display:'Anton','Impact','Arial Narrow',sans-serif;
+  --body:'Figtree','Segoe UI',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + var(--pad-top))}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);line-height:1.6;padding-bottom:var(--pad-bot);overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+
+/* header */
+header{position:fixed;inset:0 0 auto 0;z-index:20;padding-top:var(--pad-top);background:rgba(7,9,7,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:var(--display);font-size:1.35rem;letter-spacing:.04em;text-decoration:none}
+.brand span{color:var(--gold)}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--muted)}
+nav a:hover{color:var(--white)}
+.btn{display:inline-block;padding:14px 26px;border-radius:4px;background:var(--crimson);color:var(--white);font-weight:700;text-decoration:none;border:2px solid var(--crimson);transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#0f6f20}
+.btn.ghost{background:transparent;border-color:var(--gold);color:var(--gold)}
+.btn.ghost:hover{background:var(--gold);color:var(--ink)}
+.btn.sm{padding:9px 18px;font-size:.9rem}
+
+/* hero */
+.hero{min-height:100svh;display:grid;align-items:end;padding:calc(110px + var(--pad-top)) 0 64px;position:relative;overflow:hidden;
+  background:radial-gradient(900px 600px at 85% 20%,rgba(34,184,58,.30),transparent 60%),linear-gradient(180deg,var(--royal2),var(--royal))}
+.hero::after{content:"";position:absolute;right:-8%;top:12%;width:min(520px,70vw);aspect-ratio:1;border:2px solid rgba(70,224,90,.40);border-radius:50%;box-shadow:0 0 0 28px rgba(70,224,90,.06),0 0 0 29px rgba(70,224,90,.28)}
+.hero .wrap{position:relative;z-index:1}
+.kick{font-weight:500;color:var(--gold);margin-bottom:14px;font-size:1.05rem}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(3.6rem,13vw,10.5rem);line-height:.92;letter-spacing:.01em;text-transform:uppercase}
+h1 .l2{display:block;color:transparent;-webkit-text-stroke:2px var(--white)}
+.sub{max-width:34ch;font-size:clamp(1.1rem,2.4vw,1.4rem);color:var(--mist);margin:26px 0 34px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px}
+.in{opacity:0;transform:translateY(24px);animation:in .8s cubic-bezier(.2,.7,.2,1) forwards}
+.in:nth-child(2){animation-delay:.12s}.in:nth-child(3){animation-delay:.24s}.in:nth-child(4){animation-delay:.36s}
+@keyframes in{to{opacity:1;transform:none}}
+
+/* sections */
+section{padding:96px 0}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,6vw,4rem);line-height:1;text-transform:uppercase;margin-bottom:18px}
+.lead{color:var(--muted);max-width:52ch}
+
+/* modalities */
+.mod{background:var(--mist);color:var(--ink)}
+.mod .lead{color:#3f4a41}
+.tabs{display:grid;grid-template-columns:1fr 1fr;margin-top:40px;border:2px solid var(--ink);border-radius:6px;overflow:hidden}
+.tab{all:unset;cursor:pointer;padding:clamp(28px,5vw,56px);display:flex;flex-direction:column;gap:10px;min-height:220px;justify-content:space-between;transition:background .3s,color .3s}
+.tab+.tab{border-left:2px solid var(--ink)}
+.tab strong{font-family:var(--display);font-weight:400;font-size:clamp(2rem,5vw,3.6rem);text-transform:uppercase;line-height:1}
+.tab small{font-weight:500;font-size:.95rem}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--white)}
+.tab:focus-visible{outline-offset:-6px}
+.panel{margin-top:22px;font-size:1.1rem;min-height:3.2em}
+.panel b{color:var(--crimson)}
+
+/* nutrition */
+.nutri .box{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.card{border:1px solid var(--gold);border-radius:6px;padding:36px;background:rgba(255,255,255,.04)}
+.card p:first-child{color:var(--muted);font-size:.95rem;margin-bottom:6px}
+.card .handle{font-family:var(--display);font-size:2.2rem;color:var(--gold);text-decoration:none;word-break:break-all}
+
+/* optional blocks */
+.extra{border-top:1px solid var(--line)}
+.extra[hidden]{display:none}
+.extra ul{list-style:none;display:grid;gap:10px;margin-top:20px}
+.extra li{padding:14px 0;border-bottom:1px solid var(--line)}
+
+.perfis .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.perfis .card{display:flex;flex-direction:column;gap:6px}
+.perfis .handle{font-size:1.8rem}
+.loc .btn{margin-top:26px}
+@media(max-width:760px){.perfis .grid{grid-template-columns:1fr}}
+/* final CTA */
+.final{background:var(--crimson);text-align:center;padding:110px 0}
+.final h2{font-size:clamp(2.6rem,8vw,6rem)}
+.final p{max-width:40ch;margin:0 auto 32px;color:#e6ffe9}
+.final .btn{background:var(--white);color:var(--ink);border-color:var(--white)}
+.final .btn:hover{background:var(--ink);color:var(--white);border-color:var(--ink)}
+
+footer{padding:36px 0;color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+@media(max-width:760px){
+  nav ul{display:none}
+  .tabs{grid-template-columns:1fr}
+  .tab+.tab{border-left:0;border-top:2px solid var(--ink)}
+  .tab{min-height:150px}
+  .nutri .box{grid-template-columns:1fr;gap:28px}
+  section{padding:72px 0}
+  .hero::after{opacity:.6;top:8%}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.in{animation:none;opacity:1;transform:none}.btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#topo">IMPERIAL <span>FIGHT</span></a>
+    <nav aria-label="Principal">
+      <ul>
+        <li><a href="#modalidades">Modalidades</a></li>
+        <li><a href="#nutricao">Nutrição</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#perfis">Perfis</a></li>
+        <li><a href="#extras" id="navExtras" hidden>Informações</a></li>
+        <li><a href="#aula">Aula experimental</a></li>
+      </ul>
+    </nav>
+    <a class="btn sm" data-ig href="https://www.instagram.com/ct_imperialfight/" target="_blank" rel="noopener">Agendar aula</a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <p class="kick in">Centro de Treinamento · Academia de Artes Marciais em Maceió</p>
+      <h1 id="h1" class="in">Muay Thai<span class="l2">e Jiu-jítsu</span></h1>
+      <p class="sub in">Treine com o Imperial Fight. Agende uma aula experimental.</p>
+      <div class="cta-row in">
+        <a class="btn" data-ig href="https://www.instagram.com/ct_imperialfight/" target="_blank" rel="noopener">Agendar aula experimental</a>
+        <a class="btn ghost" href="#modalidades">Ver modalidades</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mod" id="modalidades" aria-labelledby="h-mod">
+    <div class="wrap">
+      <h2 id="h-mod">Duas artes marciais, um só centro de treinamento</h2>
+      <p class="lead">Escolha uma modalidade para ver como começar.</p>
+      <div class="tabs" role="tablist" aria-label="Modalidades">
+        <button class="tab" role="tab" id="t0" aria-selected="true" aria-controls="panel" data-i="0"><strong>Muay Thai</strong><small>Modalidade oferecida no CT</small></button>
+        <button class="tab" role="tab" id="t1" aria-selected="false" aria-controls="panel" data-i="1" tabindex="-1"><strong>Jiu-jítsu</strong><small>Modalidade oferecida no CT</small></button>
+      </div>
+      <p class="panel" id="panel" role="tabpanel" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="nutri" id="nutricao" aria-labelledby="h-nut">
+    <div class="wrap box">
+      <div>
+        <h2 id="h-nut">Acompanhamento nutricional</h2>
+        <p class="lead">O Imperial Fight conta com nutricionista parceira. Conheça o trabalho dela no Instagram.</p>
+      </div>
+      <div class="card">
+        <p>Nutricionista</p>
+        <a class="handle" href="https://www.instagram.com/anacleria_/" target="_blank" rel="noopener">@anacleria_</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mod loc" id="localizacao" aria-labelledby="h-loc">
+    <div class="wrap">
+      <h2 id="h-loc">Ver localização</h2>
+      <p class="lead">O CT Imperial Fight fica em Maceió, AL. Abra o mapa e trace a rota até o treino.</p>
+      <a class="btn" id="mapsLink" href="#" target="_blank" rel="noopener">Ver no Google Maps</a>
+    </div>
+  </section>
+
+  <section class="perfis" id="perfis" aria-labelledby="h-per">
+    <div class="wrap">
+      <h2 id="h-per">Acesse nossos perfis</h2>
+      <p class="lead">Veja fotos, novidades e avaliações do CT Imperial Fight.</p>
+      <div class="grid">
+        <div class="card">
+          <p>Instagram</p>
+          <a class="handle" href="https://www.instagram.com/ct_imperialfight/" target="_blank" rel="noopener">@ct_imperialfight</a>
+        </div>
+        <div class="card">
+          <p>Google</p>
+          <a class="handle" id="googleLink" href="#" target="_blank" rel="noopener">Perfil no Google</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blocos opcionais: aparecem só se preenchidos em CONFIG (no script abaixo) -->
+  <section class="extra" id="extras" hidden aria-labelledby="h-ex">
+    <div class="wrap">
+      <h2 id="h-ex">Informações</h2>
+      <ul id="extraList"></ul>
+    </div>
+  </section>
+
+  <section class="final" id="aula" aria-labelledby="h-fin">
+    <div class="wrap">
+      <h2 id="h-fin">Agende uma aula experimental</h2>
+      <p>Fale com o CT Imperial Fight pelo WhatsApp e marque o seu primeiro treino.</p>
+      <a class="btn" data-ig href="https://www.instagram.com/ct_imperialfight/" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Centro de Treinamento Imperial Fight · Maceió</span>
+    <a href="https://www.instagram.com/ct_imperialfight/" target="_blank" rel="noopener">@ct_imperialfight</a>
+  </div>
+</footer>
+
+<script>
+/* ===== CONFIG =====
+   Preencha só o que for confirmado pela academia. Campos vazios não aparecem na página. */
+const CONFIG = {
+  whatsapp: "558281525788",   // ex.: "5582999999999" (DDI+DDD+número). Se preenchido, os botões abrem o WhatsApp
+  endereco: "",
+  horarios: "",
+  planos: "",
+  mapsUrl: "",    // link exato do Google Maps (opcional)
+  googleUrl: ""   // link do perfil no Google (opcional)
+};
+
+/* Texto de apoio de cada modalidade (sem dados inventados) */
+const MOD = [
+  "<b>Muay Thai</b> está entre as modalidades do CT Imperial Fight. Para começar, agende uma aula experimental.",
+  "<b>Jiu-jítsu</b> está entre as modalidades do CT Imperial Fight. Para começar, agende uma aula experimental."
+];
+
+const tabs = [...document.querySelectorAll('.tab')];
+const panel = document.getElementById('panel');
+function pick(i){
+  tabs.forEach((t,k)=>{t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1});
+  panel.setAttribute('aria-labelledby','t'+i);
+  panel.innerHTML = MOD[i];
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener('click',()=>pick(i));
+  t.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();pick((i+1)%2);tabs[(i+1)%2].focus()}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();pick((i+1)%2);tabs[(i+1)%2].focus()}
+  });
+});
+pick(0);
+
+/* WhatsApp opcional */
+if(CONFIG.whatsapp){
+  const msg = encodeURIComponent("Olá! Quero agendar uma aula experimental no CT Imperial Fight.");
+  document.querySelectorAll('[data-ig]').forEach(a=>{a.href=`https://wa.me/${CONFIG.whatsapp}?text=${msg}`});
+}
+
+/* Blocos opcionais */
+const items = [["Endereço",CONFIG.endereco],["Horários",CONFIG.horarios],["Planos",CONFIG.planos]].filter(x=>x[1]);
+if(items.length){
+  const ul = document.getElementById('extraList');
+  items.forEach(([k,v])=>{const li=document.createElement('li');const b=document.createElement('strong');b.textContent=k+': ';li.append(b,document.createTextNode(v));ul.append(li)});
+  document.getElementById('extras').hidden=false;
+  document.getElementById('navExtras').hidden=false;
+}
+document.getElementById('mapsLink').href = CONFIG.mapsUrl || "https://www.google.com/maps/search/?api=1&query=CT+Imperial+Fight+Macei%C3%B3+AL";
+document.getElementById('googleLink').href = CONFIG.googleUrl || "https://share.google/P0ZH1pNzT6BCm9Bsl";
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
